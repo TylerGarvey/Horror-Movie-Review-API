@@ -1,1 +1,17 @@
-### Put your HTTP Requests here
+### Get all reviews
+GET http://localhost:8080/reviews
+###
+POST http://localhost:8080/reviews
+Content-Type: application/json
+{
+    "title": "",
+    "author": "",
+    "description": "",
+    "rating":"",
+    "hashtags":[
+        "hashtag"
+    ]
+}
+
+###
+GET http://localhost:8080/review/
