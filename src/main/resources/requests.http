@@ -1,17 +1,43 @@
-### Get all reviews
+### GET ALL REVIEWS
 GET http://localhost:8080/reviews
-###
+
+
+### VIEW REVIEW BY ID
+GET  http://localhost:8080/review/13
+
+
+### ADD REVIEW 
 POST http://localhost:8080/reviews
 Content-Type: application/json
+
 {
-    "title": "",
-    "author": "",
-    "description": "",
-    "rating":"",
-    "hashtags":[
-        "hashtag"
-    ]
+    "title": "enter title",
+    "author": "enter author",
+    "description": "enter review description",
+    "rating":"enter rating",
+    "category": "enter subgenre"
 }
 
-###
-GET http://localhost:8080/review/
+
+### VIEW ALL HASHTAGS
+GET http://localhost:8080/hashtags
+
+
+### CREATE HASHTAG 
+POST http://localhost:8080/hashtags
+Content-Type: application/json
+
+{
+    "contentTag": "Hashtag"
+}
+
+### ADD HASHTAG TO A REVIEW 
+PUT http://localhost:8080/hashtags/14/addToReview/13
+
+
+### VIEW REVIEWS ASSOCIATED WITH A HASHTAG (???)
+GET http://localhost:8080/hashtag/9/reviews
+
+
+### VIEW REVIEWS BY CATEGORY
+GET http://localhost:8080/categories

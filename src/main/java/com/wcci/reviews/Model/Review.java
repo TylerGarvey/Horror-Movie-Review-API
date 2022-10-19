@@ -3,6 +3,7 @@ package com.wcci.reviews.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
@@ -19,15 +20,17 @@ public class Review {
     @JsonIgnore
     private Category category;
 
+
     @ManyToMany(mappedBy = "reviews")
     private Collection<Hashtag> hashtags;
 
-    public Review(String title, String author, String description, String rating, Category category) {
+    public Review(String title, String author, String description, String rating, Category category, Hashtag... hashtags) {
         this.title = title;
         this.author = author;
         this.description = description;
         this.rating = rating;
         this.category = category;
+        this.hashtags = Arrays.asList(hashtags);
     }
 
     public Review() {
@@ -63,5 +66,14 @@ public class Review {
         return category;
     }
 
-    public Collection<Hashtag> getHashtag() { return hashtags; }
+    public Collection<Hashtag> getHashtag() {
+        return hashtags;
+    }
+
+    public void setHashtag(Hashtag hashtag) {
+        this.hashtags.add(hashtag);
+    }
+
+
+
 }

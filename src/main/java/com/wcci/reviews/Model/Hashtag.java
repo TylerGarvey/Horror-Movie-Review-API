@@ -21,9 +21,10 @@ public class Hashtag {
     @ManyToMany
     @JsonIgnore
     private Collection<Review> reviews;
+    
     public Hashtag(String contentTag, Review... reviews) {
         this.contentTag = contentTag;
-        this.reviews = Arrays.asList(reviews);//?check this
+        this.reviews = Arrays.asList(reviews);
     }
 
     public Hashtag() {
@@ -39,5 +40,9 @@ public class Hashtag {
 
     public Collection<Review> getReviews() {
         return reviews;
+    }
+
+    public void addReview(Review review) {
+        this.reviews.add(review);
     }
 }
